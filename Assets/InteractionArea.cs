@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class InteractionArea : MonoBehaviour
 {
-
     public GameObject interactionMessage;
     public MercanciaScript mercancia;
 
@@ -46,6 +45,6 @@ public class InteractionArea : MonoBehaviour
     void StopInteraction()
     {
         interactionMessage.SetActive(false);
-        mercancia = null;
-    }
+        mercancia = null;
+    }
 }
