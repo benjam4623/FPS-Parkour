@@ -6,6 +6,7 @@ public class InteractionArea : MonoBehaviour
 {
     public GameObject interactionMessage;
     public MercanciaScript mercancia;
+    public MoneyManager moneyManager;
 
     // Start is called before the first frame update
     void Start()
@@ -18,10 +19,16 @@ public class InteractionArea : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (mercancia)
+            if (mercancia && moneyManager.money >= mercancia.cost)
             {
+                moneyManager.UpdateMoney(-mercancia.cost);
                 Destroy(mercancia.gameObject);
                 StopInteraction();
+            }
+
+            else if (moneyManager.money < mercancia.cost)
+            {
+                Debug.Log("Saldo Insuficiente");
             }
         }
     }
